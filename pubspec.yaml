@@ -51,16 +51,35 @@ dev_dependencies:
 
 # The following section is specific to Flutter packages.
 flutter:
-
-  # The following line ensures that the Material Icons font is
-  # included with your application, so that you can use the icons in
-  # the material Icons class.
   uses-material-design: true
 
+  fonts:
+    - family: Bungee
+      fonts:
+        - asset: assets/fonts/Bungee-Regular.ttf
+          weight: 400
+    - family: Overpass
+      fonts:
+        - asset: assets/fonts/Overpass-VariableFont_wght.ttf
+          weight: 100
+        - asset: assets/fonts/Overpass-Italic-VariableFont_wght.ttf
+          weight: 100
+          style: italic
+    - family: WorkSans
+      fonts:
+        - asset: assets/fonts/WorkSans-VariableFont_wght.ttf
+          weight: 100
+        - asset: assets/fonts/WorkSans-Italic-VariableFont_wght.ttf
+          weight: 100
+          style: italic
+    - family: Rye
+      fonts:
+        - asset: assets/fonts/Rye-Regular.ttf
+          weight: 400
+
   # To add assets to your application, add an assets section, like this:
-  # assets:
-  #   - images/a_dot_burr.jpeg
-  #   - images/a_dot_ham.jpeg
+  assets:
+    - assets/images/
 
   # An image asset can refer to one or more resolution-specific "variants", see
   # https://flutter.dev/to/resolution-aware-images
