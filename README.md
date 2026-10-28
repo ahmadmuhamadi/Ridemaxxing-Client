@@ -1,10 +1,10 @@
 # Ridemaxxing-Client
 
 ## Design shit
-[figma] (https://www.figma.com/design/x5KdFDrs8wprMEj48sLR3q/PoolCar?node-id=0-1&t=hAzEFhK8FcaVKepO-1)
+[figma](https://www.figma.com/design/x5KdFDrs8wprMEj48sLR3q/PoolCar?node-id=0-1&t=hAzEFhK8FcaVKepO-1)
 
 
-![logo] (assest/route66.png)
+![logo](assest/route66.png)
 
 ## Color Scheme
 
