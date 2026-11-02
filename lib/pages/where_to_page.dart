@@ -7,7 +7,14 @@ import '../widgets/ride_bottom_navigation.dart';
 import '../widgets/route_card.dart';
 
 class WhereToPage extends StatefulWidget {
-  const WhereToPage({super.key});
+  const WhereToPage({
+    required this.currentIndex,
+    required this.onNavigate,
+    super.key,
+  });
+
+  final int currentIndex;
+  final ValueChanged<int> onNavigate;
 
   @override
   State<WhereToPage> createState() => _WhereToPageState();
@@ -17,7 +24,6 @@ class _WhereToPageState extends State<WhereToPage> {
   String _fromLocation = 'Home - Sunnyvale';
   String _toLocation = 'Apple Park - Cupertino';
   String? _selectedPlace;
-  int _selectedTab = 0;
 
   void _swapLocations() {
     setState(() {
@@ -49,6 +55,7 @@ class _WhereToPageState extends State<WhereToPage> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
+      backgroundColor: RideColors.paper,
       appBar: const RideAppBar(),
       body: SafeArea(
         child: ListView(
@@ -92,8 +99,8 @@ class _WhereToPageState extends State<WhereToPage> {
         ),
       ),
       bottomNavigationBar: RideBottomNavigation(
-        currentIndex: _selectedTab,
-        onTap: (index) => setState(() => _selectedTab = index),
+        currentIndex: widget.currentIndex,
+        onTap: widget.onNavigate,
       ),
     );
   }
