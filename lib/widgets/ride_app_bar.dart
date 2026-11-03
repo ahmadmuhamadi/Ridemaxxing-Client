@@ -3,9 +3,14 @@ import 'package:flutter/material.dart';
 import '../theme/ride_colors.dart';
 
 class RideAppBar extends StatelessWidget implements PreferredSizeWidget {
-  const RideAppBar({this.showBackArrow = false, super.key});
+  const RideAppBar({
+    this.showBackArrow = false,
+    this.showAction = true,
+    super.key,
+  });
 
   final bool showBackArrow;
+  final bool showAction;
 
   @override
   Size get preferredSize => const Size.fromHeight(76);
@@ -34,37 +39,39 @@ class RideAppBar extends StatelessWidget implements PreferredSizeWidget {
           color: RideColors.asphalt,
         ),
       ),
-      actions: [
-        Padding(
-          padding: const EdgeInsets.fromLTRB(4, 0, 16, 0),
-          child: showBackArrow
-              ? const Icon(
-                  Icons.arrow_back,
-                  size: 28,
-                  color: RideColors.asphalt,
-                )
-              : Container(
-                  width: 44,
-                  height: 44,
-                  decoration: const BoxDecoration(
-                    color: RideColors.turquoise,
-                    shape: BoxShape.circle,
-                    border: Border.fromBorderSide(
-                      BorderSide(color: RideColors.mustard, width: 3),
-                    ),
-                  ),
-                  alignment: Alignment.center,
-                  child: const Text(
-                    'WW',
-                    style: TextStyle(
-                      fontFamily: 'Rye',
-                      fontSize: 14,
-                      color: RideColors.asphalt,
-                    ),
-                  ),
-                ),
-        ),
-      ],
+      actions: showAction
+          ? [
+              Padding(
+                padding: const EdgeInsets.fromLTRB(4, 0, 16, 0),
+                child: showBackArrow
+                    ? const Icon(
+                        Icons.arrow_back,
+                        size: 28,
+                        color: RideColors.asphalt,
+                      )
+                    : Container(
+                        width: 44,
+                        height: 44,
+                        decoration: const BoxDecoration(
+                          color: RideColors.turquoise,
+                          shape: BoxShape.circle,
+                          border: Border.fromBorderSide(
+                            BorderSide(color: RideColors.mustard, width: 3),
+                          ),
+                        ),
+                        alignment: Alignment.center,
+                        child: const Text(
+                          'WW',
+                          style: TextStyle(
+                            fontFamily: 'Rye',
+                            fontSize: 14,
+                            color: RideColors.asphalt,
+                          ),
+                        ),
+                      ),
+              ),
+            ]
+          : null,
     );
   }
 }

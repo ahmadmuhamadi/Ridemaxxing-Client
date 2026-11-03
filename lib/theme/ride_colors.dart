@@ -9,4 +9,5 @@ abstract final class RideColors {
   static const paper = Color(0xFFFFFBF2);
   static const dustyBrown = Color(0xFF5E4F42);
   static const desertSand = Color(0xFFEBD9B8);
+  static const logout = Color(0xFFFF383C);
 }
