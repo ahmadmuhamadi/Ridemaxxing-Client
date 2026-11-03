@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 
 import 'pages/profile_page.dart';
+import 'pages/settings_page.dart';
 import 'pages/where_to_page.dart';
 import 'theme/ride_colors.dart';
 
@@ -48,7 +49,8 @@ class _NavigationShellState extends State<NavigationShell> {
     setState(() {
       _selectedTab = index;
       if (index == 0) _selectedPage = 0;
-      if (index == 3) _selectedPage = 1;
+      if (index == 2) _selectedPage = 1;
+      if (index == 3) _selectedPage = 2;
     });
   }
 
@@ -58,6 +60,7 @@ class _NavigationShellState extends State<NavigationShell> {
       index: _selectedPage,
       children: [
         WhereToPage(currentIndex: _selectedTab, onNavigate: _navigate),
+        SettingsPage(currentIndex: _selectedTab, onNavigate: _navigate),
         ProfilePage(currentIndex: _selectedTab, onNavigate: _navigate),
       ],
     );
