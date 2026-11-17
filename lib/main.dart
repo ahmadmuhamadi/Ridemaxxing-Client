@@ -1,9 +1,10 @@
 import 'package:flutter/material.dart';
 
+import 'pages/home_page.dart';
 import 'pages/profile_page.dart';
 import 'pages/settings_page.dart';
-import 'pages/where_to_page.dart';
-import 'theme/ride_colors.dart';
+import 'theme/app_theme.dart';
+import 'widgets/rider_tab_bar.dart';
 
 void main() {
   runApp(const MyApp());
@@ -17,52 +18,50 @@ class MyApp extends StatelessWidget {
     return MaterialApp(
       title: 'RideMaxxing',
       debugShowCheckedModeBanner: false,
-      theme: ThemeData(
-        useMaterial3: true,
-        fontFamily: 'Overpass',
-        scaffoldBackgroundColor: RideColors.cream,
-        colorScheme: ColorScheme.fromSeed(
-          seedColor: RideColors.rust,
-          surface: RideColors.cream,
-        ),
-      ),
-      home: const NavigationShell(),
+      theme: appTheme(Brightness.light),
+      darkTheme: appTheme(Brightness.dark),
+      home: const RiderTabs(),
     );
   }
 }
 
-class NavigationShell extends StatefulWidget {
-  const NavigationShell({super.key});
+class RiderTabs extends StatefulWidget {
+  const RiderTabs({super.key});
 
   @override
-  State<NavigationShell> createState() => _NavigationShellState();
+  State<RiderTabs> createState() => _RiderTabsState();
 }
 
-class _NavigationShellState extends State<NavigationShell> {
-  int _selectedPage = 0;
-  int _selectedTab = 0;
+class _RiderTabsState extends State<RiderTabs> {
+  int _tab = 0;
 
-  void _navigate(int index) {
-    if (index < 0 || index > 3) {
-      return;
-    }
-    setState(() {
-      _selectedTab = index;
-      if (index == 0) _selectedPage = 0;
-      if (index == 2) _selectedPage = 1;
-      if (index == 3) _selectedPage = 2;
-    });
+  void _openSettings() {
+    Navigator.push(
+      context,
+      MaterialPageRoute(
+        builder: (context) =>
+            SettingsPage(onBack: () => Navigator.pop(context)),
+      ),
+    );
   }
 
   @override
   Widget build(BuildContext context) {
-    return IndexedStack(
-      index: _selectedPage,
-      children: [
-        WhereToPage(currentIndex: _selectedTab, onNavigate: _navigate),
-        SettingsPage(currentIndex: _selectedTab, onNavigate: _navigate),
-        ProfilePage(currentIndex: _selectedTab, onNavigate: _navigate),
-      ],
+    return Scaffold(
+      extendBody: true,
+      bottomNavigationBar: RiderTabBar(
+        current: _tab,
+        onTap: (i) {
+          if (i == 0 || i == 3) setState(() => _tab = i);
+        },
+      ),
+      body: IndexedStack(
+        index: _tab == 3 ? 1 : 0,
+        children: [
+          const HomePage(),
+          ProfilePage(onOpenSettings: _openSettings),
+        ],
+      ),
     );
   }
 }

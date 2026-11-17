@@ -6,11 +6,20 @@ class RideAppBar extends StatelessWidget implements PreferredSizeWidget {
   const RideAppBar({
     this.showBackArrow = false,
     this.showAction = true,
+    this.actionIcon,
+    this.actionTooltip,
+    this.onAction,
     super.key,
   });
 
   final bool showBackArrow;
   final bool showAction;
+
+  /// When set, the action is a tappable icon button (e.g. settings gear or
+  /// back arrow) instead of the avatar / static arrow.
+  final IconData? actionIcon;
+  final String? actionTooltip;
+  final VoidCallback? onAction;
 
   @override
   Size get preferredSize => const Size.fromHeight(76);
@@ -43,7 +52,17 @@ class RideAppBar extends StatelessWidget implements PreferredSizeWidget {
           ? [
               Padding(
                 padding: const EdgeInsets.fromLTRB(4, 0, 16, 0),
-                child: showBackArrow
+                child: actionIcon != null
+                    ? IconButton(
+                        tooltip: actionTooltip,
+                        onPressed: onAction,
+                        icon: Icon(
+                          actionIcon,
+                          size: 28,
+                          color: RideColors.asphalt,
+                        ),
+                      )
+                    : showBackArrow
                     ? const Icon(
                         Icons.arrow_back,
                         size: 28,

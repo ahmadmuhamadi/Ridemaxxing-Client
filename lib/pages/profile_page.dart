@@ -5,24 +5,22 @@ import '../widgets/profile_action_row.dart';
 import '../widgets/profile_saved_place.dart';
 import '../widgets/profile_stat_card.dart';
 import '../widgets/ride_app_bar.dart';
-import '../widgets/ride_bottom_navigation.dart';
 import '../widgets/road_icon.dart';
 
 class ProfilePage extends StatelessWidget {
-  const ProfilePage({
-    required this.currentIndex,
-    required this.onNavigate,
-    super.key,
-  });
+  const ProfilePage({required this.onOpenSettings, super.key});
 
-  final int currentIndex;
-  final ValueChanged<int> onNavigate;
+  final VoidCallback onOpenSettings;
 
   @override
   Widget build(BuildContext context) {
     return Scaffold(
       backgroundColor: RideColors.cream,
-      appBar: const RideAppBar(showBackArrow: true),
+      appBar: RideAppBar(
+        actionIcon: Icons.settings_outlined,
+        actionTooltip: 'Settings',
+        onAction: onOpenSettings,
+      ),
       body: SafeArea(
         top: false,
         child: Column(
@@ -237,10 +235,6 @@ class ProfilePage extends StatelessWidget {
             ),
           ],
         ),
-      ),
-      bottomNavigationBar: RideBottomNavigation(
-        currentIndex: currentIndex,
-        onTap: onNavigate,
       ),
     );
   }

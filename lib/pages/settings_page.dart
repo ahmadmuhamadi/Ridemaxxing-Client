@@ -2,25 +2,24 @@ import 'package:flutter/material.dart';
 
 import '../theme/ride_colors.dart';
 import '../widgets/ride_app_bar.dart';
-import '../widgets/ride_bottom_navigation.dart';
 import '../widgets/road_icon.dart';
 import '../widgets/settings_row.dart';
 
+/// Opened from Profile; no tab bar, back arrow returns to Profile.
 class SettingsPage extends StatelessWidget {
-  const SettingsPage({
-    required this.currentIndex,
-    required this.onNavigate,
-    super.key,
-  });
+  const SettingsPage({required this.onBack, super.key});
 
-  final int currentIndex;
-  final ValueChanged<int> onNavigate;
+  final VoidCallback onBack;
 
   @override
   Widget build(BuildContext context) {
     return Scaffold(
       backgroundColor: RideColors.paper,
-      appBar: const RideAppBar(showAction: false),
+      appBar: RideAppBar(
+        actionIcon: Icons.arrow_back,
+        actionTooltip: 'Back to profile',
+        onAction: onBack,
+      ),
       body: SafeArea(
         top: false,
         child: Column(
@@ -134,10 +133,6 @@ class SettingsPage extends StatelessWidget {
             ),
           ],
         ),
-      ),
-      bottomNavigationBar: RideBottomNavigation(
-        currentIndex: currentIndex,
-        onTap: onNavigate,
       ),
     );
   }
