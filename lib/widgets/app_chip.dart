@@ -4,10 +4,10 @@ import '../theme/app_theme.dart';
 import 'glass.dart';
 
 class AppChip extends StatelessWidget {
-  const AppChip(this.label, {required this.icon, this.onTap, super.key});
+  const AppChip(this.label, {this.icon, this.onTap, super.key});
 
   final String label;
-  final IconData icon;
+  final IconData? icon;
   final VoidCallback? onTap;
 
   @override
@@ -21,8 +21,10 @@ class AppChip extends StatelessWidget {
         child: Row(
           mainAxisSize: MainAxisSize.min,
           children: [
-            Icon(icon, size: 18, color: c.gold),
-            const SizedBox(width: 6),
+            if (icon != null) ...[
+              Icon(icon, size: 18, color: c.gold),
+              const SizedBox(width: 6),
+            ],
             Text(
               label,
               style: TextStyle(
