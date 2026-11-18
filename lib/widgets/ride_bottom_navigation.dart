@@ -84,10 +84,7 @@ class RideBottomNavigation extends StatelessWidget {
             child: Column(
               mainAxisSize: MainAxisSize.min,
               children: [
-                SizedBox(
-                  height: 28,
-                  child: Center(child: icon),
-                ),
+                SizedBox(height: 28, child: Center(child: icon)),
                 const SizedBox(height: 2),
                 Text(
                   label,

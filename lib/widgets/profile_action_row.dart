@@ -31,11 +31,7 @@ class ProfileActionRow extends StatelessWidget {
       ),
       child: Row(
         children: [
-          SizedBox(
-            width: 24,
-            height: 24,
-            child: Center(child: leading),
-          ),
+          SizedBox(width: 24, height: 24, child: Center(child: leading)),
           const SizedBox(width: 12),
           Expanded(
             child: Text(
@@ -49,11 +45,7 @@ class ProfileActionRow extends StatelessWidget {
               ),
             ),
           ),
-          const Icon(
-            Icons.chevron_right,
-            color: RideColors.asphalt,
-            size: 28,
-          ),
+          const Icon(Icons.chevron_right, color: RideColors.asphalt, size: 28),
         ],
       ),
     );

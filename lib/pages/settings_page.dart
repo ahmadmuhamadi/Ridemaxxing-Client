@@ -44,10 +44,7 @@ class SettingsPage extends StatelessWidget {
                   decoration: BoxDecoration(
                     color: RideColors.paper,
                     borderRadius: BorderRadius.circular(12),
-                    border: Border.all(
-                      color: RideColors.mustard,
-                      width: 1.5,
-                    ),
+                    border: Border.all(color: RideColors.mustard, width: 1.5),
                   ),
                   clipBehavior: Clip.antiAlias,
                   child: Column(

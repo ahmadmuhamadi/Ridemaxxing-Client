@@ -24,6 +24,8 @@ class AppColors extends ThemeExtension<AppColors> {
   Color get line => ink.withValues(alpha: 0.12);
   Color get glass => surface.withValues(alpha: 0.6);
   Color get primarySoft => primary.withValues(alpha: 0.14);
+  Color get goldSoft => gold.withValues(alpha: 0.18);
+  Color get shadow => const Color(0x2E000000);
 
   static const light = AppColors(
     bg: Color(0xFFF2F3F5),
