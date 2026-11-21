@@ -3,6 +3,7 @@ import 'package:flutter/material.dart';
 import 'pages/home_page.dart';
 import 'pages/profile_page.dart';
 import 'pages/settings_page.dart';
+import 'pages/trips_page.dart';
 import 'theme/app_theme.dart';
 import 'widgets/rider_tab_bar.dart';
 
@@ -52,13 +53,14 @@ class _RiderTabsState extends State<RiderTabs> {
       bottomNavigationBar: RiderTabBar(
         current: _tab,
         onTap: (i) {
-          if (i == 0 || i == 3) setState(() => _tab = i);
+          if (i != 2) setState(() => _tab = i);
         },
       ),
       body: IndexedStack(
-        index: _tab == 3 ? 1 : 0,
+        index: _tab == 3 ? 2 : _tab,
         children: [
           const HomePage(),
+          TripsPage(onBookRide: () => setState(() => _tab = 0)),
           ProfilePage(onOpenSettings: _openSettings),
         ],
       ),
