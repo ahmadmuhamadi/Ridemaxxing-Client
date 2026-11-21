@@ -34,10 +34,7 @@ class RideAppBar extends StatelessWidget implements PreferredSizeWidget {
       leadingWidth: 62,
       leading: Padding(
         padding: const EdgeInsets.all(8),
-        child: Image.asset(
-          'assets/images/Route66.png',
-          fit: BoxFit.contain,
-        ),
+        child: Image.asset('assets/images/Route66.png', fit: BoxFit.contain),
       ),
       title: const Text(
         'Ride\nmaxxing',

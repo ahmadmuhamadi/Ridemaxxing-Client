@@ -37,11 +37,7 @@ class SettingsRow extends StatelessWidget {
           ),
           child: Row(
             children: [
-              SizedBox(
-                width: 24,
-                height: 24,
-                child: Center(child: leading),
-              ),
+              SizedBox(width: 24, height: 24, child: Center(child: leading)),
               const SizedBox(width: 14),
               Expanded(
                 child: Text(
