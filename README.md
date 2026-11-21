@@ -1,5 +1,17 @@
 # Ridemaxxing-Client
 
+## Firebase authentication setup
+
+The app uses Firebase Authentication for email/password accounts and Cloud Firestore for each account's basic profile document (`users/{uid}`). Passwords are handled by Firebase Authentication and are never written to Firestore.
+
+1. Create a Firebase project and register the Android app with application ID `com.example.ridemaxxing_client` (and register any other target platforms).
+2. Enable **Authentication → Sign-in method → Email/Password** and create a Cloud Firestore database.
+3. Install and sign in to the Firebase CLI, then install FlutterFire CLI and run `flutterfire configure` from this directory. Select the platforms you intend to run. For Android, this generates `android/app/google-services.json`; for other platforms it generates their Firebase configuration.
+4. Run `flutter pub get` and launch the app.
+5. Publish `firestore.rules` to Firestore so each signed-in user can access only their own profile document.
+
+Until Firebase is configured for the selected platform, the app displays a setup screen instead of opening the auth flow.
+
 ## Design shit
 [figma](https://www.figma.com/design/x5KdFDrs8wprMEj48sLR3q/PoolCar?node-id=0-1&t=hAzEFhK8FcaVKepO-1)
 

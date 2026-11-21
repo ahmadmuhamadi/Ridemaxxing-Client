@@ -1,0 +1,29 @@
+{
+  "project_info": {
+    "project_number": "850729295917",
+    "project_id": "ridemaxxing-8584a",
+    "storage_bucket": "ridemaxxing-8584a.firebasestorage.app"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:850729295917:android:0be0d1d3401a6bbb5258a4",
+        "android_client_info": {
+          "package_name": "com.example.ridemaxxing_client"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyDn01Fe9XfbJg-gZQSdT0i4tL7z8VG9mMc"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

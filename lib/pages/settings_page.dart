@@ -7,9 +7,14 @@ import '../widgets/settings_row.dart';
 
 /// Opened from Profile; no tab bar, back arrow returns to Profile.
 class SettingsPage extends StatelessWidget {
-  const SettingsPage({required this.onBack, super.key});
+  const SettingsPage({
+    required this.onBack,
+    required this.onSignOut,
+    super.key,
+  });
 
   final VoidCallback onBack;
+  final VoidCallback onSignOut;
 
   @override
   Widget build(BuildContext context) {
@@ -44,10 +49,7 @@ class SettingsPage extends StatelessWidget {
                   decoration: BoxDecoration(
                     color: RideColors.paper,
                     borderRadius: BorderRadius.circular(12),
-                    border: Border.all(
-                      color: RideColors.mustard,
-                      width: 1.5,
-                    ),
+                    border: Border.all(color: RideColors.mustard, width: 1.5),
                   ),
                   clipBehavior: Clip.antiAlias,
                   child: Column(
@@ -123,7 +125,7 @@ class SettingsPage extends StatelessWidget {
                           textColor: RideColors.logout,
                           showChevron: false,
                           hasBottomBorder: false,
-                          onTap: () {},
+                          onTap: onSignOut,
                         ),
                       ),
                     ],
