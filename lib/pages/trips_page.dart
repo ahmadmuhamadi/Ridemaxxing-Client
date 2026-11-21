@@ -47,7 +47,7 @@ class _TripsPageState extends State<TripsPage> {
   Widget build(BuildContext context) {
     final c = context.colors;
     return Scaffold(
-      appBar: const AppHeader(),
+      appBar: const AppHeader(avatar: true),
       body: Stack(
         children: [
           const Positioned.fill(child: MapBackground()),
