@@ -1,0 +1,107 @@
+import '../models/ride_history.dart';
+
+const _corolla = VehicleInfo(
+  make: 'Toyota',
+  model: 'Corolla',
+  year: 2022,
+  color: 'Pearl white',
+  licensePlate: 'ABC 4821',
+);
+
+const _civic = VehicleInfo(
+  make: 'Honda',
+  model: 'Civic',
+  year: 2021,
+  color: 'Midnight blue',
+  licensePlate: 'JDX 7314',
+);
+
+final passengerRideHistory = <PassengerRide>[
+  PassengerRide(
+    id: 'RM-28491',
+    from: 'Maadi',
+    to: 'Downtown Cairo',
+    pickupAddress: 'Street 9, beside Maadi Metro Station, Cairo',
+    dropoffAddress: 'Talaat Harb Square, Downtown Cairo',
+    departureAt: DateTime(2026, 11, 18, 8, 15),
+    arrivalAt: DateTime(2026, 11, 18, 8, 55),
+    status: RideHistoryStatus.completed,
+    vehicle: _corolla,
+    driverName: 'Omar Hassan',
+    driverRating: 4.9,
+    farePaid: 120,
+    paymentMethod: 'Visa •••• 2048',
+  ),
+  PassengerRide(
+    id: 'RM-27834',
+    from: 'New Cairo',
+    to: 'Nasr City',
+    pickupAddress: 'Gate 4, The American University in Cairo',
+    dropoffAddress: 'City Stars Mall, Omar Ibn El Khattab Street',
+    departureAt: DateTime(2026, 11, 9, 17, 30),
+    arrivalAt: DateTime(2026, 11, 9, 18, 20),
+    status: RideHistoryStatus.completed,
+    vehicle: _civic,
+    driverName: 'Nour Adel',
+    driverRating: 4.8,
+    farePaid: 145,
+    paymentMethod: 'Cash',
+  ),
+  PassengerRide(
+    id: 'RM-26107',
+    from: 'Dokki',
+    to: 'Zamalek',
+    pickupAddress: 'El Tahrir Street, near Dokki Metro Station',
+    dropoffAddress: '26th of July Street, Zamalek',
+    departureAt: DateTime(2026, 10, 27, 12),
+    arrivalAt: DateTime(2026, 10, 27, 12, 25),
+    status: RideHistoryStatus.cancelled,
+    vehicle: _corolla,
+    driverName: 'Mariam Samir',
+    driverRating: 4.7,
+    farePaid: 0,
+    paymentMethod: 'Wallet',
+  ),
+];
+
+final driverRideHistory = <DriverRide>[
+  DriverRide(
+    id: 'RM-D-10482',
+    from: '6th of October',
+    to: 'Smart Village',
+    pickupAddress: 'Mall of Arabia, Gate 3, 6th of October City',
+    dropoffAddress: 'Smart Village, Building B7, Cairo–Alexandria Road',
+    departureAt: DateTime(2026, 11, 20, 7, 45),
+    arrivalAt: DateTime(2026, 11, 20, 8, 20),
+    status: RideHistoryStatus.completed,
+    vehicle: _civic,
+    passengers: [
+      RidePassenger(name: 'Salma Tarek', seatCount: 1, fare: 80),
+      RidePassenger(name: 'Youssef Ali', seatCount: 2, fare: 160),
+    ],
+    seatCapacity: 4,
+    pricePerSeat: 80,
+    totalEarnings: 240,
+    distanceKm: 24.6,
+  ),
+  DriverRide(
+    id: 'RM-D-09821',
+    from: 'Heliopolis',
+    to: 'New Cairo',
+    pickupAddress: 'Al Hegaz Square, Heliopolis',
+    dropoffAddress: 'Point 90 Mall, Fifth Settlement, New Cairo',
+    departureAt: DateTime(2026, 11, 4, 16, 10),
+    arrivalAt: DateTime(2026, 11, 4, 17, 5),
+    status: RideHistoryStatus.completed,
+    vehicle: _corolla,
+    passengers: [
+      RidePassenger(name: 'Laila Mostafa', seatCount: 1, fare: 95),
+      RidePassenger(name: 'Ahmed Fathy', seatCount: 1, fare: 95),
+      RidePassenger(name: 'Karim Nabil', seatCount: 1, fare: 95),
+    ],
+    seatCapacity: 4,
+    pricePerSeat: 95,
+    totalEarnings: 285,
+    distanceKm: 31.2,
+  ),
+];

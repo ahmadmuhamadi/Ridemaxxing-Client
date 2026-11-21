@@ -8,6 +8,7 @@ import '../widgets/map_background.dart';
 import '../widgets/primary_button.dart';
 import '../widgets/route_marker.dart';
 import '../utils/location.dart';
+import 'results_page.dart';
 
 class HomePage extends StatefulWidget {
   const HomePage({super.key});
@@ -64,6 +65,28 @@ class _HomePageState extends State<HomePage> {
     final from = _from.text;
     _from.text = _to.text;
     _to.text = from;
+  }
+
+  void _findRides() {
+    final to = _to.text.trim();
+    if (to.isEmpty) {
+      ScaffoldMessenger.of(context).showSnackBar(
+        const SnackBar(content: Text('Pick a destination first.')),
+      );
+      return;
+    }
+    final from = _from.text.trim();
+    Navigator.push(
+      context,
+      MaterialPageRoute(
+        builder: (_) => ResultsPage(
+          from: from.isEmpty ? 'Current location' : from,
+          to: to,
+          time: _time,
+          seats: _seats,
+        ),
+      ),
+    );
   }
 
   Future<void> _pickTime() async {
@@ -141,7 +164,7 @@ class _HomePageState extends State<HomePage> {
                               ],
                             ),
                             const SizedBox(height: 12),
-                            PrimaryButton('Find rides', onPressed: () {}),
+                            PrimaryButton('Find rides', onPressed: _findRides),
                             const SizedBox(height: 16),
                             Text(
                               'Your regular routes',

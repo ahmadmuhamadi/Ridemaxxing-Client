@@ -16,10 +16,7 @@ class RoadIcon extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return CustomPaint(
-      size: Size(width, height),
-      painter: _RoadPainter(color),
-    );
+    return CustomPaint(size: Size(width, height), painter: _RoadPainter(color));
   }
 }
 
@@ -63,5 +60,6 @@ class _RoadPainter extends CustomPainter {
   }
 
   @override
-  bool shouldRepaint(covariant _RoadPainter oldDelegate) => oldDelegate.color != color;
+  bool shouldRepaint(covariant _RoadPainter oldDelegate) =>
+      oldDelegate.color != color;
 }

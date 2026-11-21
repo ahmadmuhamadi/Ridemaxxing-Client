@@ -3,11 +3,7 @@ import 'package:flutter/material.dart';
 import '../theme/ride_colors.dart';
 
 class ProfileSavedPlace extends StatelessWidget {
-  const ProfileSavedPlace({
-    required this.label,
-    required this.icon,
-    super.key,
-  });
+  const ProfileSavedPlace({required this.label, required this.icon, super.key});
 
   final String label;
   final IconData icon;

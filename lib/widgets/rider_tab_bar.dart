@@ -16,7 +16,7 @@ class RiderTabBar extends StatelessWidget {
   final ValueChanged<int> onTap;
   final int unreadAlerts;
 
-  static const _labels = ['Find', 'Trips', 'Alerts', 'Profile'];
+  static const _labels = ['Find', 'Rides', 'Alerts', 'Profile'];
 
   Widget _icon(int i, Color color) => switch (i) {
     0 => Icon(Icons.search, size: 22, color: color),
